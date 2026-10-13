@@ -52,3 +52,26 @@ else
     image_speed = 0;
     image_index = 0;
 }
+
+// recoleccion de monedas dibujadas en la capa de tiles "coin"
+var tmap = layer_tilemap_get_id("coin");
+if (tmap != -1)
+{
+    var tx1 = tilemap_get_cell_x_at_pixel(tmap, bbox_left,  bbox_top);
+    var tx2 = tilemap_get_cell_x_at_pixel(tmap, bbox_right - 1, bbox_bottom - 1);
+    var ty1 = tilemap_get_cell_y_at_pixel(tmap, bbox_left,  bbox_top);
+    var ty2 = tilemap_get_cell_y_at_pixel(tmap, bbox_right - 1, bbox_bottom - 1);
+
+    for (var tx = tx1; tx <= tx2; tx++)
+    {
+        for (var ty = ty1; ty <= ty2; ty++)
+        {
+            if (tilemap_get(tmap, tx, ty) != 0)
+            {
+                tilemap_set(tmap, 0, tx, ty);
+                global.moneda += 1;
+                global.puntos += 100;
+            }
+        }
+    }
+}
