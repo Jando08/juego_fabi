@@ -69,7 +69,7 @@ if (tmap != -1)
             if (tilemap_get(tmap, tx, ty) != 0)
             {
                 tilemap_set(tmap, 0, tx, ty);
-                global.moneda += 1;
+                global.monedas += 1;
                 global.puntos += 100;
             }
         }

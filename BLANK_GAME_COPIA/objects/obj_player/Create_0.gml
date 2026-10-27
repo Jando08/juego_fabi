@@ -15,7 +15,7 @@ jump_speed = -6;
 grav = 0.4;
 
 //contador de monedas
-global.moneda = 0;
+global.monedas = 0;
 
 
 #endregion

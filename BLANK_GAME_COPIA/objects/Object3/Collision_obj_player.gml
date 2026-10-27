@@ -1,8 +1,8 @@
-if (!variable_global_exists("moneda"))
+if (!variable_global_exists("monedas"))
 {
-    global.moneda = 0
+    global.monedas = 0
 }
 
-global.moneda += 1;
+global.monedas += 1;
 
 instance_destroy();
