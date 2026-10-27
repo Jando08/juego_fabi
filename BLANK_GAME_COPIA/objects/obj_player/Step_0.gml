@@ -1,3 +1,9 @@
+// si ya no hay vidas, no se mueve mas
+if (global.game_over)
+{
+    exit;
+}
+
 // movimiento horizontal con A (izquierda) y D (derecha)
 // 0 sin movimiento, 1 derecha, -1 izquierda
 var mov_x = keyboard_check(ord("D")) - keyboard_check(ord("A"));
@@ -53,15 +59,33 @@ else
     image_index = 0;
 }
 
-// si el personaje se cayo, deja de recoger monedas
-if (y > room_height)
+// si el personaje se cayo, muere y pierde una vida
+if (!global.muerto && y > room_height)
 {
+    global.muerto = true;
     global.caido = true;
+    global.vidas -= 1;
+
+    if (global.vidas > 0)
+    {
+        // reaparece en el punto inicial
+        x = spawn_x;
+        y = spawn_y;
+        hsp = 0;
+        vsp = 0;
+        global.caido = false;
+        global.muerto = false;
+    }
+    else
+    {
+        // sin vidas: game over
+        global.game_over = true;
+    }
 }
 
 // recoleccion de monedas dibujadas en la capa de tiles "coin"
 var tmap = layer_tilemap_get_id("coin");
-if (tmap != -1 && !global.caido)
+if (tmap != -1 && !global.caido && !global.muerto)
 {
     var tx1 = tilemap_get_cell_x_at_pixel(tmap, bbox_left,  bbox_top);
     var tx2 = tilemap_get_cell_x_at_pixel(tmap, bbox_right - 1, bbox_bottom - 1);

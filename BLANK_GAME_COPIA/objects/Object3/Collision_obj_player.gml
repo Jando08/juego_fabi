@@ -3,7 +3,7 @@ if (!variable_global_exists("monedas"))
     global.monedas = 0
 }
 
-if (!global.caido)
+if (!global.caido && !global.muerto)
 {
     global.monedas += 1;
 }

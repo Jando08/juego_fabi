@@ -17,8 +17,13 @@ grav = 0.4;
 //contador de monedas
 global.monedas = 0;
 
-// estado de caida
+// estado de caida/muerte
 global.caido = false;
+global.muerto = false;
+
+// punto de reaparicion
+spawn_x = x;
+spawn_y = y;
 
 
 #endregion
