@@ -26,15 +26,7 @@
     "name":"Default",
     "path":"texturegroups/Default",
   },
-  "tileAnimationFrames":[
-    {
-      "%Name":"anim_coin",
-      "frames":[0,1,2,3],
-      "name":"anim_coin",
-      "resourceType":"GMTileAnimation",
-      "resourceVersion":"2.0",
-    },
-  ],
+  "tileAnimationFrames":[],
   "tileAnimationSpeed":15.0,
   "tileHeight":16,
   "tilehsep":0,

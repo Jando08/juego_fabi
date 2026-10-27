@@ -30,8 +30,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_coin",
-    "path":"sprites/spr_coin/spr_coin.yy",
+    "name":"moneda",
+    "path":"sprites/moneda/moneda.yy",
   },
   "spriteMaskId":null,
   "visible":true,
