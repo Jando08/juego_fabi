@@ -98,6 +98,54 @@ draw_text(x_mundo, y_texto, "MUNDO");
 draw_set_color(color_verde);
 draw_text(x_mundo, y_texto + 25, mundo_txt);
 
+// Pantalla de Game Over
+if (global.game_over)
+{
+    var gui_w2 = display_get_gui_width();
+    var gui_h2 = display_get_gui_height();
+
+    var c_sombra = make_color_rgb(25, 30, 40);
+    var c_rojo = make_color_rgb(255, 85, 100);
+    var c_oro = make_color_rgb(255, 205, 55);
+    var c_blanco = c_white;
+
+    // Fondo oscuro
+    draw_set_alpha(0.8);
+    draw_set_color(c_sombra);
+    draw_rectangle(0, 0, gui_w2, gui_h2, false);
+    draw_set_alpha(1);
+
+    // Titulo
+    draw_set_font(fn_menu);
+    draw_set_halign(fa_center);
+    draw_set_valign(fa_middle);
+    draw_set_color(c_rojo);
+    draw_text_transformed(gui_w2 / 2, gui_h2 / 2 - 50, "GAME OVER", 3, 3, 0);
+
+    // Subtitulo
+    draw_set_font(fn_hud);
+    draw_set_color(c_blanco);
+    draw_text(gui_w2 / 2, gui_h2 / 2 + 5, "Te quedaste sin vidas");
+
+    // Boton reiniciar
+    var bw = 220;
+    var bh = 50;
+    var bx = gui_w2 / 2 - bw / 2;
+    var by = gui_h2 / 2 + 60;
+    draw_set_color(c_oro);
+    draw_rectangle(bx, by, bx + bw, by + bh, false);
+    draw_set_color(c_sombra);
+    draw_rectangle(bx, by, bx + bw, by + bh, true);
+    draw_set_color(c_black);
+    draw_text(gui_w2 / 2, by + bh / 2, "REINICIAR");
+
+    // Guardar region del boton en globales para el Step
+    global.btn_x = bx;
+    global.btn_y = by;
+    global.btn_w = bw;
+    global.btn_h = bh;
+}
+
 //Restaurar
 
 draw_set_color(c_white);
