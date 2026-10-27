@@ -29,7 +29,10 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":null,
+  "spriteId":{
+    "name":"spr_coin",
+    "path":"sprites/spr_coin/spr_coin.yy",
+  },
   "spriteMaskId":null,
   "visible":true,
 }
