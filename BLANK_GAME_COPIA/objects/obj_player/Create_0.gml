@@ -17,5 +17,8 @@ grav = 0.4;
 //contador de monedas
 global.monedas = 0;
 
+// estado de caida
+global.caido = false;
+
 
 #endregion

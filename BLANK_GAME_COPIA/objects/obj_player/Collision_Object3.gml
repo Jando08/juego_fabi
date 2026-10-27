@@ -1,2 +1,5 @@
-global.puntos += 100;
+if (!global.caido)
+{
+    global.puntos += 100;
+}
 

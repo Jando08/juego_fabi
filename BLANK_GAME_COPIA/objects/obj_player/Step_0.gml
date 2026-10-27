@@ -53,9 +53,15 @@ else
     image_index = 0;
 }
 
+// si el personaje se cayo, deja de recoger monedas
+if (y > room_height)
+{
+    global.caido = true;
+}
+
 // recoleccion de monedas dibujadas en la capa de tiles "coin"
 var tmap = layer_tilemap_get_id("coin");
-if (tmap != -1)
+if (tmap != -1 && !global.caido)
 {
     var tx1 = tilemap_get_cell_x_at_pixel(tmap, bbox_left,  bbox_top);
     var tx2 = tilemap_get_cell_x_at_pixel(tmap, bbox_right - 1, bbox_bottom - 1);
