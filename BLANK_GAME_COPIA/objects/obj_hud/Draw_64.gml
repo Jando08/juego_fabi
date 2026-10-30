@@ -61,7 +61,7 @@ draw_text(x_score, y_texto + 25, puntaje_txt);
 var x_monedas = gui_w * 0.43;
 
 // Icono de moneda
-draw_sprite(spr_coin, 0, x_monedas, y_texto + 25);
+draw_sprite(moneda, 0, x_monedas, y_texto + 25);
 
 // Cantidad
 draw_set_color(color_oro);
