@@ -8,7 +8,7 @@
     "TileSerialiseData":[],
   },
   "name":"ts_moneda",
-  "out_columns":8,
+  "out_columns":1,
   "out_tilehborder":2,
   "out_tilevborder":2,
   "parent":{
@@ -27,13 +27,7 @@
     "path":"texturegroups/Default",
   },
   "tileAnimationFrames":[
-    {
-      "%Name":"anim_moneda",
-      "frames":[0,1,2,3,4,5,6,7],
-      "name":"anim_moneda",
-      "resourceType":"GMTileAnimation",
-      "resourceVersion":"2.0",
-    },
+    {"$GMTileAnimation":"","%Name":"anim_moneda","frames":[0,1,2,3,4,5,6,7,],"name":"anim_moneda","resourceType":"GMTileAnimation","resourceVersion":"2.0",},
   ],
   "tileAnimationSpeed":15.0,
   "tileHeight":24,
@@ -42,5 +36,5 @@
   "tileWidth":31,
   "tilexoff":0,
   "tileyoff":0,
-  "tile_count":8,
+  "tile_count":1,
 }
