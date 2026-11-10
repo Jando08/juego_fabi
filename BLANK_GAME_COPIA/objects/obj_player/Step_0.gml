@@ -106,7 +106,35 @@ if (tmap != -1 && !global.caido && !global.muerto)
     }
 }
 
-// Espinas: quitar vida al tocar (robusto)
+// Espinas (tiles): quitar vida si el jugador toca un tile de espinas
+var tmap_espinas = layer_tilemap_get_id("espinas");
+if (tmap_espinas != -1 && !global.muerto)
+{
+    var tx = tilemap_get_cell_x_at_pixel(tmap_espinas, x + 16, y + 31);
+    var ty = tilemap_get_cell_y_at_pixel(tmap_espinas, x + 16, y + 31);
+    if (tilemap_get(tmap_espinas, tx, ty) != 0)
+    {
+        global.muerto = true;
+        global.caido = true;
+        global.vidas -= 1;
+
+        if (global.vidas > 0)
+        {
+            x = spawn_x;
+            y = spawn_y;
+            hsp = 0;
+            vsp = 0;
+            global.caido = false;
+            global.muerto = false;
+        }
+        else
+        {
+            global.game_over = true;
+        }
+    }
+}
+
+// Espinas (obj_spike): quitar vida al tocar (robusto)
 if (!global.muerto && place_meeting(x, y, obj_spike))
 {
     global.muerto = true;
