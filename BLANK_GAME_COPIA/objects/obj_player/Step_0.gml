@@ -105,3 +105,31 @@ if (tmap != -1 && !global.caido && !global.muerto)
         }
     }
 }
+
+// Espinas: quitar vida al tocar (robusto)
+if (!global.muerto && place_meeting(x, y, obj_spike))
+{
+    global.muerto = true;
+    global.caido = true;
+    global.vidas -= 1;
+
+    if (global.vidas > 0)
+    {
+        x = spawn_x;
+        y = spawn_y;
+        hsp = 0;
+        vsp = 0;
+        global.caido = false;
+        global.muerto = false;
+    }
+    else
+    {
+        global.game_over = true;
+    }
+}
+
+// Transicion a rm_02 al llegar al final de la sala
+if (!global.muerto && !global.game_over && x > room_width - 64)
+{
+    room_goto(rm_02);
+}
