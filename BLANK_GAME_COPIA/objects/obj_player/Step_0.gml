@@ -46,12 +46,12 @@ y += vsp;
 if (mov_x > 0)
 {
     sprite_index = spr_player_right;
-    image_speed = 1;
+    image_speed = 0.5;
 }
 else if (mov_x < 0)
 {
     sprite_index = spr_player_left;
-    image_speed = 1;
+    image_speed = 0.5;
 }
 else
 {
