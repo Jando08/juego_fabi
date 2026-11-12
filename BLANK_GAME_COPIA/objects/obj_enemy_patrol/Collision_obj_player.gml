@@ -3,6 +3,7 @@ if (!global.muerto)
     global.muerto = true;
     global.caido = true;
     global.vidas -= 1;
+    if (variable_global_exists("musica_id") && global.musica_id != 0) audio_pause_sound(global.musica_id);
 
     if (global.vidas > 0)
     {
@@ -15,9 +16,11 @@ if (!global.muerto)
         }
         global.caido = false;
         global.muerto = false;
+        if (variable_global_exists("musica_id") && global.musica_id != 0) audio_resume_sound(global.musica_id);
     }
     else
     {
         global.game_over = true;
+        if (variable_global_exists("musica_id") && global.musica_id != 0) audio_pause_sound(global.musica_id);
     }
 }
