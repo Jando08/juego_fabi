@@ -1,7 +1,8 @@
 // Verificacion robusta de colision con el jugador
 if (place_meeting(x, y, obj_player))
 {
-    if (!global.muerto)
+    var _pl = instance_place(x, y, obj_player);
+    if (_pl != noone && _pl.vsp >= 0 && !global.muerto)
     {
         global.muerto = true;
         global.caido = true;

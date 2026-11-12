@@ -115,7 +115,8 @@ if (tmap_espinas != -1 && !global.muerto)
 {
     var tx = tilemap_get_cell_x_at_pixel(tmap_espinas, x + 16, y + 31);
     var ty = tilemap_get_cell_y_at_pixel(tmap_espinas, x + 16, y + 31);
-    if (tilemap_get(tmap_espinas, tx, ty) != 0)
+    // Solo cuenta si el jugador esta en la mitad inferior del tile (caer encima), no al saltar por encima
+    if (tilemap_get(tmap_espinas, tx, ty) != 0 && ((y + 31) - (ty * 16)) >= 8)
     {
         global.muerto = true;
         global.caido = true;
@@ -141,7 +142,7 @@ if (tmap_espinas != -1 && !global.muerto)
 }
 
 // Espinas (obj_spike): quitar vida al tocar (robusto)
-if (!global.muerto && place_meeting(x, y, obj_spike))
+if (!global.muerto && place_meeting(x, y, obj_spike) && vsp >= 0)
 {
     global.muerto = true;
     global.caido = true;

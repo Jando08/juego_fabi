@@ -1,4 +1,4 @@
-if (!global.muerto)
+if (!global.muerto && other.vsp >= 0)
 {
     global.muerto = true;
     global.caido = true;
